@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed Asim Khidir — E-Portfolio</title>
+  <meta name="description" content="Mechatronics Engineering student portfolio: robotics, smart agriculture, IoT, assistive tech." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0f14;     --card:#121827;   --muted:#8aa4c0;  --text:#e6eef8;
+      --accent:#4fd1c5;  --accent2:#7aa2f7; --chip:#1b2337;  --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(180deg,#0a0e13 0%,#0b1220 100%); color:var(--text)}
+    a{color:var(--accent)}
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:10; backdrop-filter:saturate(120%) blur(10px);
+      background:rgba(9,13,20,.6); border-bottom:1px solid rgba(255,255,255,.06)}
+    .navwrap{max-width:1100px; margin:auto; display:flex; align-items:center; gap:18px; padding:12px 18px}
+    .brand{font-weight:800; letter-spacing:.3px}
+    .spacer{flex:1}
+    .nav a{color:var(--text); text-decoration:none; opacity:.85; padding:8px 12px; border-radius:10px}
+    .nav a:hover{background:rgba(255,255,255,.06); opacity:1}
+    /* HERO */
+    .hero{max-width:1100px; margin:28px auto 0; padding:18px}
+    .heroCard{position:relative; overflow:hidden; border-radius:22px; background:var(--card); box-shadow:var(--shadow)}
+    .heroBanner{height:280px; background:url(/assets/images/banner.jpg) center/cover no-repeat}
+    .heroBody{display:grid; grid-template-columns:130px 1fr; gap:18px; padding:18px}
+    .avatar{width:120px; height:120px; border-radius:16px; object-fit:cover; border:2px solid rgba(255,255,255,.1)}
+    h1{margin:6px 0 2px; font-size:28px}
+    .subtitle{color:var(--muted); margin-top:4px}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .chip{background:var(--chip); color:#cfe6ff; padding:6px 10px; border-radius:999px; font-size:13px; border:1px solid rgba(255,255,255,.06)}
+    .ctaRow{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+    .btn{display:inline-block; padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#02141a}
+    .btn.ghost{border:1px solid rgba(255,255,255,.12); color:var(--text)}
+    /* SECTIONS */
+    section{max-width:1100px; margin:24px auto; padding:0 18px}
+    .grid{display:grid; gap:18px}
+    @media(min-width:900px){ .grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)} }
+    .card{background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
+    h2{margin:6px 0 12px; font-size:24px}
+    h3{margin:8px 0 8px}
+    p{color:#cfe0f6; line-height:1.6}
+    /* PROJECTS */
+    .project{overflow:hidden; padding:0}
+    .project img{width:100%; height:180px; object-fit:cover; display:block}
+    .project .pbody{padding:14px}
+    .tag{font-size:12px; opacity:.8}
+    .modal{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; padding:16px}
+    .modal.open{display:flex}
+    .modalCard{max-width:900px; width:100%; background:var(--card); border-radius:18px; box-shadow:var(--shadow); overflow:hidden; border:1px solid rgba(255,255,255,.08)}
+    .modalHead{display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .close{cursor:pointer; font-size:22px; opacity:.8}
+    .modalBody{display:grid; grid-template-columns:1fr; gap:14px; padding:16px}
+    .modalBody img{width:100%; border-radius:12px}
+    @media(min-width:900px){ .modalBody{grid-template-columns:1.25fr 1fr} }
+    /* FOOTER */
+    footer{max-width:1100px; margin:28px auto 60px; padding:0 18px; color:#9fb3cf}
+    .contact{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+    .small{font-size:13px; color:#9bb0cc}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="navwrap">
+      <div class="brand">Mohamed Asim Khidir</div>
+      <div class="spacer"></div>
+      <a href="#about">About</a>
+      <a href="#mission">Mission</a>
+      <a href="#swot">SWOT</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="heroCard">
+      <div class="heroBanner"></div>
+      <div class="heroBody">
+        <img class="avatar" src="/assets/images/me.jpg" alt="Portrait of Mohamed Asim Khidir" />
+        <div>
+          <h1>Mechatronics Engineering — APU 2025</h1>
+          <div class="subtitle">Robotics • Smart Agriculture • IoT • Assistive Tech</div>
+          <div class="chips">
+            <span class="chip">SolidWorks (CAD)</span>
+            <span class="chip">Arduino & Electronics</span>
+            <span class="chip">Python • MATLAB • LabVIEW</span>
+            <span class="chip">IoT Systems</span>
+          </div>
+          <div class="ctaRow">
+            <a class="btn primary" href="#projects">Explore Projects</a>
+            <a class="btn ghost" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="grid grid-2">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        Final-year <strong>Mechatronics Engineering</strong> student with a hands-on approach to building
+        human-centred solutions. Experience includes an Educator/Innovation Internship at <strong>Lamba
+        Innovation Center</strong> (built a Smart Hydroponic System, ran Arduino/electronics STEM sessions) and
+        work as an <strong>Engineering Lab Assistant</strong> at APU (lab setups, equipment care, supporting students).
+      </p>
+      <p class="small">
+        Education: B.Eng (Hons) Mechatronics Engineering, Asia Pacific University (2021–2025)
+      </p>
+    </div>
+    <div class="card">
+      <h2 id="mission">Mission Statement</h2>
+      <p>
+        To design <strong>human-centred robotic and intelligent systems</strong> that improve accessibility and
+        sustainability, blending mechatronics, AI, and IoT. Committed to ethical engineering and
+        <strong>lifelong learning</strong> through continuous experimentation, reflection, and collaboration.
+      </p>
+    </div>
+  </section>
+
+  <!-- SWOT -->
+  <section id="swot" class="grid grid-3">
+    <div class="card">
+      <h2>Strengths</h2>
+      <p>
+        Strong mechatronics base across CAD, electronics, and embedded programming. Built real projects
+        in assistive tech, IoT, and smart agriculture. Clear communication, teamwork, and leadership from
+        mentoring and lab responsibilities.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Weaknesses</h2>
+      <p>
+        Limited exposure to large-scale industrial project management and budgeting. Needs deeper
+        experience with advanced industrial automation stacks and formal testing workflows.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Opportunities</h2>
+      <p>
+        Rapid growth in robotics and precision agriculture. Access to hackathons, research, and professional
+        bodies (IEM/IEEE). Certifications and targeted internships to sharpen specialization.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Threats</h2>
+      <p>
+        Fast technology cycles in AI/robotics and competitive entry-level markets. Risk of skills stagnation
+        without a structured learning plan and active portfolio updates.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid grid-3">
+      <!-- Smart Glove -->
+      <article class="card project">
+        <img src="/assets/images/proj-smart-glove.jpg" alt="Smart Glove project cover">
+        <div class="pbody">
+          <h3>Smart Glove for Deaf & Hard of Hearing</h3>
+          <div class="tag">Sensor fusion • ML • TTS</div>
+          <p>Real-time gesture-to-speech using flex sensors + IMU and ML models (RF, SVM, MLP, XGB) with a custom GUI.</p>
+          <button class="btn primary" onclick="openModal('glove')">View</button>
+        </div>
+      </article>
+      <!-- VR Glasses -->
+      <article class="card project">
+        <img src="/assets/images/proj-vr.jpg" alt="VR Glasses project cover">
+        <div class="pbody">
+          <h3>VR Glasses for Visually Impaired</h3>
+          <div class="tag">Assistive • Audio feedback</div>
+          <p>Wearable concept providing environmental awareness via sensing and audio prompts to support safe navigation.</p>
+          <button class="btn primary" onclick="openModal('vr')">View</button>
+        </div>
+      </article>
+      <!-- Hydroponic -->
+      <article class="card project">
+        <img src="/assets/images/proj-hydroponic.jpg" alt="Hydroponic project cover">
+        <div class="pbody">
+          <h3>Smart Hydroponic System</h3>
+          <div class="tag">Internship • Automation</div>
+          <p>Automated nutrient dosing, pH/EC monitoring, climate control, and data logging for yield optimization.</p>
+          <button class="btn primary" onclick="openModal('hydro')">View</button>
+        </div>
+      </article>
+      <!-- Smart Home -->
+      <article class="card project">
+        <img src="/assets/images/proj-smart-home.jpg" alt="Smart Home project cover">
+        <div class="pbody">
+          <h3>IoT-based Smart House</h3>
+          <div class="tag">IoT • Safety • Voice</div>
+          <p>Gas-leak and theft detection plus voice-controlled lighting using ESP32 and connected sensors.</p>
+          <button class="btn primary" onclick="openModal('home')">View</button>
+        </div>
+      </article>
+      <!-- Hand Swipe AI -->
+      <article class="card project">
+        <img src="/assets/images/proj-hand-swipe.jpg" alt="Hand Swipe AI project cover">
+        <div class="pbody">
+          <h3>Hand Swipe Detection Using AI</h3>
+          <div class="tag">Computer Vision • YOLO</div>
+          <p>Gesture detector trained on a curated dataset with augmentation and evaluation for robust, real-time use.</p>
+          <button class="btn primary" onclick="openModal('swipe')">View</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact" class="card">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/YOUR-USERNAME" target="_blank">linkedin.com/in/YOUR-USERNAME</a></div>
+      <div><strong>Email:</strong> <a href="mailto:Mkhider72@gmail.com">Mkhider72@gmail.com</a></div>
+      <div><strong>Phone:</strong> <a href="tel:+60183969477">+60 18 3969 477</a></div>
+      <div><strong>GitHub:</strong> <a href="https://github.com/MohamedAsim77" target="_blank">github.com/MohamedAsim77</a></div>
+    </div>
+    <p class="small">© <span id="y"></span> Mohamed Asim Khidir</p>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="modal-glove" class="modal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalHead"><strong>Smart Glove for Deaf & Hard of Hearing</strong><span class="close" onclick="closeModal('glove')">×</span></div>
+      <div class="modalBody">
+        <img src="/assets/images/proj-smart-glove.jpg" alt="">
+        <div>
+          <p>Sensor-based glove using flex sensors and IMU. Data processed with RF, SVM, MLP, and XGB models to classify hand gestures and convert them to speech in real time via a custom Python/Tkinter GUI.</p>
+          <p><strong>Stack:</strong> Arduino/ESP32, Python, serial comms, ML, TTS.</p>
+          <p><strong>Outcome:</strong> Real-time letters/phrases; clean UI; low latency. <em>Next:</em> larger vocabulary; Android app.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-vr" class="modal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalHead"><strong>VR Glasses for Visually Impaired</strong><span class="close" onclick="closeModal('vr')">×</span></div>
+      <div class="modalBody">
+        <img src="/assets/images/proj-vr.jpg" alt="">
+        <div>
+          <p>Wearable concept offering environmental awareness via sensing and audio prompts. Focused on accessibility, comfort, and reliable detection.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-hydro" class="modal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalHead"><strong>Smart Hydroponic System</strong><span class="close" onclick="closeModal('hydro')">×</span></div>
+      <div class="modalBody">
+        <img src="/assets/images/proj-hydroponic.jpg" alt="">
+        <div>
+          <p>Automated nutrient dosing, pH/EC monitoring, climate control, and data logging. Developed during internship at Lamba Innovation Center to improve yield and reduce manual overhead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-home" class="modal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalHead"><strong>IoT-based Smart House</strong><span class="close" onclick="closeModal('home')">×</span></div>
+      <div class="modalBody">
+        <img src="/assets/images/proj-smart-home.jpg" alt="">
+        <div>
+          <p>ESP32-based home features: gas-leak and theft detection, voice-controlled lighting, and sensor telemetry. Emphasis on safety and user-friendly control.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-swipe" class="modal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalHead"><strong>Hand Swipe Detection Using AI</strong><span class="close" onclick="closeModal('swipe')">×</span></div>
+      <div class="modalBody">
+        <img src="/assets/images/proj-hand-swipe.jpg" alt="">
+        <div>
+          <p>Custom dataset collection and training (YOLO pipeline) to detect hand swipe gestures robustly. Explores labeling, augmentation, evaluation, and real-time inference.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const Y=document.getElementById('y'); if(Y) Y.textContent=new Date().getFullYear();
+    function openModal(id){document.getElementById('modal-'+id).classList.add('open'); document.getElementById('modal-'+id).setAttribute('aria-hidden','false')}
+    function closeModal(id){document.getElementById('modal-'+id).classList.remove('open'); document.getElementById('modal-'+id).setAttribute('aria-hidden','true')}
+    // close on backdrop click
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{ if(e.target.classList.contains('modal')) e.currentTarget.classList.remove('open') }))
+  </script>
+</body>
+</html>
