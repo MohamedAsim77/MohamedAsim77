@@ -1,4 +1,4 @@
-
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -14,8 +14,8 @@
     }
     *{box-sizing:border-box}
     body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(180deg,#06111a 0%, #071623 100%); color:var(--text); -webkit-font-smoothing:antialiased}
-    a{color:var(--accent2); text-decoration: none;} /* Added text-decoration: none */
-    a:hover {text-decoration: underline;} /* Added hover effect */
+    a{color:var(--accent2); text-decoration: none;}
+    a:hover {text-decoration: underline;}
     .wrap{max-width:1100px;margin:24px auto;padding:0 18px}
     /* nav */
     .nav{display:flex;gap:12px;align-items:center;padding:12px 0}
@@ -24,24 +24,25 @@
     .navlinks a{padding:8px 10px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600}
     .navlinks a:hover{background:var(--glass);color:var(--text)}
     /* hero */
-    .hero{background:linear-gradient(180deg, rgba(8,18,26,0.55), rgba(8,18,26,0.35)); border-radius:20px; padding:12px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03)}
-    .hero-inner{display:flex;gap:18px;align-items:center;padding:12px}
-    .banner{height:120px;width:220px;border-radius:12px;overflow:hidden;flex-shrink:0;background:#0b1b26 url("https://placehold.co/220x120/0b1b26/ffffff?text=Tech+Background") center/cover no-repeat;border:1px solid rgba(255,255,255,0.03)} /* Changed banner image */
-    .avatar{width:110px;height:110px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);box-shadow:0 8px 24px rgba(1,8,12,.6)}
+    .hero{background:linear-gradient(180deg, rgba(8,18,26,0.55), rgba(8,18,26,0.35)); border-radius:20px; padding:24px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03); text-align: center;} /* Adjusted padding and text-align */
+    .hero-inner{display:flex;flex-direction:column;gap:18px;align-items:center;justify-content:center;} /* Centered content */
+    .avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.1);box-shadow:0 8px 24px rgba(1,8,12,.6); margin-bottom: 12px;} /* Made avatar round and larger */
     .hero-text{flex:1}
-    h1{margin:0;font-size:26px;letter-spacing:.3px}
-    .subtitle{color:var(--muted);margin-top:6px}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    h1{margin:0;font-size:32px;letter-spacing:.3px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);} /* Larger H1 */
+    .subtitle{color:var(--muted);margin-top:8px; font-size: 1.1em;} /* Larger subtitle */
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px; justify-content: center;} /* Centered pills */
     .pill{background:var(--chip);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:600;font-size:13px;color:#cfe9ff}
-    .cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700}
-    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021419}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+    .cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap; justify-content: center;} /* Centered CTA buttons */
+    .btn{padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700; font-size: 1.1em;} /* Larger buttons */
+    .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021419; box-shadow: 0 4px 15px rgba(0,0,0,0.3);}
+    .btn.primary:hover{transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4);}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text); box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
+    .btn.ghost:hover{transform: translateY(-2px); background: rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);}
     /* sections */
     .grid{display:grid;gap:18px;margin-top:20px}
     @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
     .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(1,6,12,.5)}
-    h2{margin:4px 0 12px}
+    h2{margin:4px 0 12px; font-size: 2em; color: var(--accent1);} /* Larger H2 and accent color */
     p{color:#cfe6ff;line-height:1.6}
     .small{color:var(--muted);font-size:13px}
     /* skills */
@@ -58,16 +59,18 @@
     footer{margin-top:22px;padding:16px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
     .contact a{color:var(--accent2);text-decoration:none}
 
-    /* Education Timeline Styles */
+    /* Education Timeline Styles - FIXED AND IMPROVED */
     .timeline {
         position: relative;
         padding: 20px 0;
         list-style: none;
+        max-width: 900px; /* Constrain width for better readability */
+        margin: 0 auto; /* Center the timeline */
     }
     .timeline::before {
         content: '';
         position: absolute;
-        left: 50%;
+        left: 50%; /* Center vertical line */
         top: 0;
         width: 2px;
         height: 100%;
@@ -78,30 +81,26 @@
         margin-bottom: 40px;
         position: relative;
         display: flex;
-        justify-content: center; /* Center items for single column on small screens */
         align-items: flex-start;
     }
-    .timeline-item:nth-child(odd) .timeline-content {
-        left: 50%;
-        margin-left: 30px;
-        text-align: left;
+    .timeline-item:nth-child(odd) {
+        flex-direction: row-reverse; /* Content on right, dot on left side of line */
     }
-    .timeline-item:nth-child(even) .timeline-content {
-        right: 50%;
-        margin-right: 30px;
-        text-align: right;
+    .timeline-item:nth-child(even) {
+        flex-direction: row; /* Content on left, dot on right side of line */
     }
     .timeline-dot {
         position: absolute;
         left: 50%;
-        top: 5px;
+        top: 18px; /* Adjusted to align with card top */
         width: 16px;
         height: 16px;
         background: var(--accent2);
         border-radius: 50%;
         transform: translateX(-50%);
         z-index: 1;
-        border: 2px solid var(--card);
+        border: 3px solid var(--bg); /* Border color matches body background */
+        box-shadow: 0 0 0 3px var(--accent2); /* Outer glow effect */
     }
     .timeline-content {
         background: var(--card);
@@ -110,7 +109,15 @@
         border: 1px solid rgba(255,255,255,0.03);
         box-shadow: 0 8px 30px rgba(1,6,12,.5);
         position: relative;
-        width: calc(50% - 45px); /* Adjust width to account for dot and margin */
+        width: calc(50% - 40px); /* Adjusted width to account for dot and margin */
+    }
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: 40px;
+        text-align: left;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-right: 40px;
+        text-align: right;
     }
     .timeline-content h3 {
         margin-top: 0;
@@ -124,6 +131,7 @@
     }
     .timeline-content .small {
         font-size: 0.8em;
+        color: var(--muted);
     }
 
     /* Responsive adjustments for timeline */
@@ -143,6 +151,22 @@
             margin-right: 0;
             text-align: left;
         }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row; /* Force single column layout */
+        }
+    }
+
+    /* General responsive adjustments */
+    @media(max-width: 768px) {
+        .navlinks { display: none; } /* Hide nav links on small screens for simplicity */
+        .hero-inner { flex-direction: column; }
+        .hero-text h1 { font-size: 2em; }
+        .hero-text .subtitle { font-size: 1em; }
+        .pills { justify-content: center; }
+        .cta { flex-direction: column; align-items: center; }
+        .btn { width: 100%; max-width: 200px; }
+        .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -153,7 +177,7 @@
       <div class="navlinks">
         <a href="#about">About</a>
         <a href="#mission">Mission</a>
-        <a href="#education">Education</a> <!-- Added Education link -->
+        <a href="#education">Education</a>
         <a href="#swot">SWOT</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -163,7 +187,6 @@
     <!-- HERO -->
     <div class="hero">
       <div class="hero-inner">
-        <div class="banner" aria-hidden="true"></div>
         <img class="avatar" src="portrait.jpg" alt="Portrait of Mohamed Asim Khidir" />
         <div class="hero-text">
           <h1>Mechatronics Engineering — APU 2025</h1>
@@ -212,16 +235,13 @@
         <h2>Mission Statement</h2>
         <p>To design <strong>human-centred robotic and intelligent systems</strong> that improve accessibility and sustainability, combining mechatronics, AI, and IoT. Commitment to ethical engineering and continuous professional growth through practical experimentation and collaboration.</p>
 
-        <h3 style="margin-top:12px">Contact</h3>
-        <p class="small" id="contact">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-asim3/" target="_blank">linkedin.com/in/mohamed-asim3</a></p>
-        <p class="small">Email: <a href="mailto:Mkhider72@gmail.com">Mkhider72@gmail.com</a></p>
-        <p class="small">Phone: <a href="tel:+60183969477">+60 18 3969 477</a></p>
+        <!-- Removed Contact details from here -->
       </div>
     </div>
 
     <!-- EDUCATION TIMELINE -->
-    <section id="education" style="margin-top:20px">
-        <h2 style="margin-bottom:20px">Education Journey</h2>
+    <section id="education" style="margin-top:20px; text-align: center;">
+        <h2 style="margin-bottom:20px;">Education Journey</h2>
         <ul class="timeline">
             <li class="timeline-item">
                 <div class="timeline-dot"></div>
@@ -245,8 +265,8 @@
     </section>
 
     <!-- SWOT -->
-    <section id="swot" style="margin-top:20px">
-      <h2 style="margin-bottom:10px">SWOT Analysis</h2>
+    <section id="swot" style="margin-top:20px; text-align: center;">
+      <h2 style="margin-bottom:10px;">SWOT Analysis</h2>
       <div class="grid grid-3">
         <div class="card">
           <h3>Strengths</h3>
@@ -268,7 +288,7 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" style="margin-top:22px">
+    <section id="projects" style="margin-top:22px; text-align: center;">
       <h2>Projects</h2>
       <div class="projects-grid" style="margin-top:12px">
         <!-- Smart Glove -->
@@ -313,7 +333,7 @@
 
         <!-- Hand Swipe -->
         <div class="card project">
-          <img src="mvi.jpg" alt="Hand Swipe Detection"> <!-- Fixed image path -->
+          <img src="mvi.jpg" alt="Hand Swipe Detection">
           <div class="pbody">
             <h3>Hand Swipe Detection Using AI</h3>
             <div class="tag">Computer Vision • YOLO</div>
@@ -324,7 +344,7 @@
       </div>
     </section>
 
-    <footer>
+    <footer id="contact">
       <div class="card">
         <h3>Contact & Links</h3>
         <p class="small">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-asim3/" target="_blank">linkedin.com/in/mohamed-asim3</a></p>
@@ -338,7 +358,19 @@
   <script>
     // current year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
   </script>
 </body>
 </html>
-
