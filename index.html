@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -9,87 +9,167 @@
   <style>
     :root{
       --bg:#07111a; --card:#0f1720; --muted:#9fbdd6; --text:#e7f3ff;
-      --accent1:#56d6c6; --accent2:#5b9cff; --chip:#14232b;
-      --radius:14px; --shadow: 0 12px 36px rgba(3,8,14,.6);
+      --accent1:#56d6c6; --accent2:#5b9cff; --chip:#15232d; --glass:rgba(255,255,255,0.03);
+      --radius:16px; --shadow: 0 14px 40px rgba(5,10,15,.6);
     }
     *{box-sizing:border-box}
-    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(180deg,#051018 0%, #071623 100%); color:var(--text)}
-    a{color:var(--accent2)}
-    .wrap{max-width:1100px;margin:28px auto;padding:0 18px}
-    /* NAV */
-    .nav{display:flex;align-items:center;gap:12px;padding:8px 0}
-    .brand{font-weight:800;font-size:18px}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(180deg,#06111a 0%, #071623 100%); color:var(--text); -webkit-font-smoothing:antialiased}
+    a{color:var(--accent2); text-decoration: none;} /* Added text-decoration: none */
+    a:hover {text-decoration: underline;} /* Added hover effect */
+    .wrap{max-width:1100px;margin:24px auto;padding:0 18px}
+    /* nav */
+    .nav{display:flex;gap:12px;align-items:center;padding:12px 0}
+    .brand{font-weight:800; font-size:18px}
     .navlinks{margin-left:auto;display:flex;gap:8px}
     .navlinks a{padding:8px 10px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600}
-    .navlinks a:hover{background:rgba(255,255,255,0.02);color:var(--text)}
-    /* HERO */
-    .hero{display:flex;gap:16px;align-items:center;padding:14px;border-radius:18px;background:linear-gradient(180deg, rgba(12,20,28,0.6), rgba(8,14,20,0.4)); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03)}
-    .hero-left{display:flex;gap:14px;align-items:center;min-width:360px}
-    .avatar{width:120px;height:120px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);box-shadow:0 8px 24px rgba(1,8,12,.6)}
-    .hero-title{line-height:1.05}
-    h1{margin:0;font-size:26px}
+    .navlinks a:hover{background:var(--glass);color:var(--text)}
+    /* hero */
+    .hero{background:linear-gradient(180deg, rgba(8,18,26,0.55), rgba(8,18,26,0.35)); border-radius:20px; padding:12px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03)}
+    .hero-inner{display:flex;gap:18px;align-items:center;padding:12px}
+    .banner{height:120px;width:220px;border-radius:12px;overflow:hidden;flex-shrink:0;background:#0b1b26 url("https://placehold.co/220x120/0b1b26/ffffff?text=Tech+Background") center/cover no-repeat;border:1px solid rgba(255,255,255,0.03)} /* Changed banner image */
+    .avatar{width:110px;height:110px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.06);box-shadow:0 8px 24px rgba(1,8,12,.6)}
+    .hero-text{flex:1}
+    h1{margin:0;font-size:26px;letter-spacing:.3px}
     .subtitle{color:var(--muted);margin-top:6px}
     .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .pill{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:999px;color:#d7f0ff;font-weight:700;font-size:13px}
+    .pill{background:var(--chip);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:600;font-size:13px;color:#cfe9ff}
     .cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px}
+    .btn{padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700}
     .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021419}
     .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
-    /* LAYOUT */
+    /* sections */
     .grid{display:grid;gap:18px;margin-top:20px}
-    @media(min-width:980px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 26px rgba(2,6,10,.45)}
-    h2{margin:6px 0 12px}
-    p{color:#cfe6ff;line-height:1.5}
+    @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(1,6,12,.5)}
+    h2{margin:4px 0 12px}
+    p{color:#cfe6ff;line-height:1.6}
     .small{color:var(--muted);font-size:13px}
-    /* Education timeline */
-    .timeline{position:relative;padding-left:18px;margin-top:12px}
-    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent2),var(--accent1));opacity:.18;border-radius:2px}
-    .titem{position:relative;padding:10px 12px 10px 22px;border-radius:8px;margin-bottom:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
-    .titem::before{content:"";position:absolute;left:-16px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--accent1);border:2px solid rgba(0,0,0,.25)}
-    .tyear{font-weight:800;color:var(--muted);font-size:13px}
-    /* SKILLS */
+    /* skills */
     .skill-row{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:8px 10px;border-radius:10px;color:#d6efff;font-weight:700;font-size:13px}
-    /* PROJECTS */
+    .skill{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:#d6efff;font-weight:600;font-size:13px}
+    /* projects */
     .projects-grid{display:grid;gap:16px;grid-template-columns:1fr}
-    @media(min-width:980px){.projects-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:900px){.projects-grid{grid-template-columns:repeat(3,1fr)}}
     .project{overflow:hidden;border-radius:12px}
-    .project img{width:100%;height:160px;object-fit:cover;display:block}
+    .project img{width:100%;height:150px;object-fit:cover;display:block}
     .pbody{padding:12px}
     .tag{font-size:12px;color:var(--muted);margin-bottom:8px}
-    /* FOOTER */
-    footer{margin-top:28px}
-    footer .card{padding:14px}
+    /* contact/footer */
+    footer{margin-top:22px;padding:16px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
     .contact a{color:var(--accent2);text-decoration:none}
+
+    /* Education Timeline Styles */
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+        list-style: none;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: var(--accent1);
+        transform: translateX(-50%);
+    }
+    .timeline-item {
+        margin-bottom: 40px;
+        position: relative;
+        display: flex;
+        justify-content: center; /* Center items for single column on small screens */
+        align-items: flex-start;
+    }
+    .timeline-item:nth-child(odd) .timeline-content {
+        left: 50%;
+        margin-left: 30px;
+        text-align: left;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+        right: 50%;
+        margin-right: 30px;
+        text-align: right;
+    }
+    .timeline-dot {
+        position: absolute;
+        left: 50%;
+        top: 5px;
+        width: 16px;
+        height: 16px;
+        background: var(--accent2);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        border: 2px solid var(--card);
+    }
+    .timeline-content {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.03);
+        box-shadow: 0 8px 30px rgba(1,6,12,.5);
+        position: relative;
+        width: calc(50% - 45px); /* Adjust width to account for dot and margin */
+    }
+    .timeline-content h3 {
+        margin-top: 0;
+        color: var(--accent2);
+        font-size: 1.4em;
+        margin-bottom: 8px;
+    }
+    .timeline-content p {
+        margin-bottom: 5px;
+        font-size: 0.95em;
+    }
+    .timeline-content .small {
+        font-size: 0.8em;
+    }
+
+    /* Responsive adjustments for timeline */
+    @media (max-width: 768px) {
+        .timeline::before {
+            left: 18px; /* Align timeline bar to the left */
+            transform: translateX(0);
+        }
+        .timeline-dot {
+            left: 18px; /* Align dots to the left */
+            transform: translateX(0);
+        }
+        .timeline-item:nth-child(odd) .timeline-content,
+        .timeline-item:nth-child(even) .timeline-content {
+            width: calc(100% - 60px); /* Full width minus dot and margin */
+            margin-left: 60px; /* Push content to the right of the bar */
+            margin-right: 0;
+            text-align: left;
+        }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- NAV -->
-    <nav style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+    <nav class="nav">
       <div class="brand">Mohamed Asim Khidir</div>
-      <div style="margin-left:auto;display:flex;gap:10px">
-        <a href="#about" style="color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px">About</a>
-        <a href="#mission" style="color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px">Mission</a>
-        <a href="#swot" style="color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px">SWOT</a>
-        <a href="#projects" style="color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px">Projects</a>
-        <a href="#contact" style="color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px">Contact</a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#education">Education</a> <!-- Added Education link -->
+        <a href="#swot">SWOT</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
 
     <!-- HERO -->
-    <header class="hero" role="banner">
-      <div class="hero-left">
-        <!-- avatar only -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="banner" aria-hidden="true"></div>
         <img class="avatar" src="portrait.jpg" alt="Portrait of Mohamed Asim Khidir" />
-        <div>
-          <div class="hero-title">
-            <h1>Mechatronics Engineering — APU 2025</h1>
-            <div class="subtitle">Robotics • Smart Agriculture • IoT • Assistive Tech</div>
-          </div>
+        <div class="hero-text">
+          <h1>Mechatronics Engineering — APU 2025</h1>
+          <div class="subtitle">Robotics • Smart Agriculture • IoT • Assistive Tech</div>
 
-          <div class="pills" aria-hidden="true">
+          <div class="pills">
             <div class="pill">SolidWorks (CAD)</div>
             <div class="pill">Arduino & Electronics</div>
             <div class="pill">Python</div>
@@ -104,158 +184,161 @@
           </div>
         </div>
       </div>
-      <!-- right side hero short bio -->
-      <div style="margin-left:18px;flex:1">
-        <p style="font-size:15px;margin:0 0 8px">
-          Final-year <strong>Mechatronics Engineering</strong> student focused on building human-centred solutions. Projects include assistive technology (Smart Glove, VR Glasses), automation (Smart Hydroponics), and IoT systems for everyday problems.
-        </p>
-        <p class="small" style="margin-top:8px">Internship: Lamba Innovation Center — Educator / Innovation Intern. University role: Engineering Lab Assistant (APU).</p>
-      </div>
-    </header>
+    </div>
 
-    <!-- ABOUT + EDUCATION -->
-    <div class="grid grid-2" style="margin-top:20px">
+    <!-- ABOUT + MISSION -->
+    <div class="grid grid-2">
       <div class="card" id="about">
-        <h2>About & Education</h2>
-        <p>Practical approach combining mechanical design, embedded systems and machine learning. Comfortable taking projects from concept to proof-of-concept and refining them into usable prototypes.</p>
+        <h2>About Me</h2>
+        <p>Final-year <strong>Mechatronics Engineering</strong> student focused on building practical, human-centred systems. Experience includes an Educator/Innovation Internship at <strong>Lamba Innovation Center</strong> (Smart Hydroponics, STEM education) and working as an <strong>Engineering Lab Assistant</strong> at APU providing lab support and mentoring.</p>
 
-        <div style="margin-top:14px">
-          <h3 class="small" style="margin-bottom:8px">Education (timeline)</h3>
-          <div class="timeline" aria-hidden="false">
-            <div class="titem">
-              <div class="tyear">Asia Pacific University, Kuala Lumpur (2021–2025)</div>
-              <p style="margin:6px 0 0" class="small">Currently studying Mechatronics Engineering (B.Eng Hons). Recently completed Year 3 with a CGPA of 3.0.</p>
-            </div>
-
-            <div class="titem">
-              <div class="tyear">Delta International School, Riyadh, SA (2008–2021)</div>
-              <p style="margin:6px 0 0" class="small">Achieved a 4.00 GPA throughout the academic journey, reflecting commitment to excellence and sustained academic performance.</p>
-            </div>
-          </div>
+        <h3 style="margin-top:12px">Skills</h3>
+        <div class="skill-row" style="margin-bottom:8px">
+          <div class="skill">SolidWorks</div>
+          <div class="skill">Arduino</div>
+          <div class="skill">Electronics</div>
+          <div class="skill">Python</div>
+          <div class="skill">MATLAB</div>
+          <div class="skill">LabVIEW</div>
+          <div class="skill">IoT</div>
         </div>
 
-        <div style="margin-top:12px">
-          <h3 style="margin-bottom:8px">Skills & Certifications</h3>
-          <div class="skill-row">
-            <div class="skill">SolidWorks</div>
-            <div class="skill">Arduino</div>
-            <div class="skill">Electronics</div>
-            <div class="skill">Python</div>
-            <div class="skill">MATLAB</div>
-            <div class="skill">LabVIEW</div>
-            <div class="skill">IoT</div>
-          </div>
-          <p class="small" style="margin-top:10px">Certifications: MATLAB On-Ramp Certificate • Engineering Lab Assistant Experience Letter</p>
-        </div>
+        <h3 style="margin-top:12px">Certifications</h3>
+        <p class="small">MATLAB On-Ramp Certificate</p>
+        <p class="small">Engineering Lab Assistant Experience Letter</p>
       </div>
 
       <div class="card" id="mission">
-        <h2>Mission Statement & Contact</h2>
-        <p>To design <strong>human-centred robotic and intelligent systems</strong> that improve accessibility and sustainability, combining mechatronics, AI, and IoT. Committed to ethical engineering and continuous professional growth.</p>
+        <h2>Mission Statement</h2>
+        <p>To design <strong>human-centred robotic and intelligent systems</strong> that improve accessibility and sustainability, combining mechatronics, AI, and IoT. Commitment to ethical engineering and continuous professional growth through practical experimentation and collaboration.</p>
 
-        <div style="margin-top:14px">
-          <h3 class="small">Contact</h3>
-          <p class="small">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-asim3/" target="_blank" rel="noopener">linkedin.com/in/mohamed-asim3</a></p>
-          <p class="small">Email: <a href="mailto:Mkhider72@gmail.com">Mkhider72@gmail.com</a></p>
-          <p class="small">Phone: <a href="tel:+60183969477">+60 18 3969 477</a></p>
-        </div>
+        <h3 style="margin-top:12px">Contact</h3>
+        <p class="small" id="contact">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-asim3/" target="_blank">linkedin.com/in/mohamed-asim3</a></p>
+        <p class="small">Email: <a href="mailto:Mkhider72@gmail.com">Mkhider72@gmail.com</a></p>
+        <p class="small">Phone: <a href="tel:+60183969477">+60 18 3969 477</a></p>
       </div>
     </div>
 
+    <!-- EDUCATION TIMELINE -->
+    <section id="education" style="margin-top:20px">
+        <h2 style="margin-bottom:20px">Education Journey</h2>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Asia Pacific University, Kuala Lumpur, Malaysia</h3>
+                    <p>Bachelor of Engineering in Mechatronics Engineering</p>
+                    <p class="small">2021 – 2025</p>
+                    <p class="small">Currently studying Mechatronics Engineering, Bachelor’s Degree, recently completed Year 3 With a CGPA of 3.0</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Delta International School, Riyadh, SA</h3>
+                    <p>High School Education</p>
+                    <p class="small">2008 – 2021</p>
+                    <p class="small">Achieved a perfect 4.00 Grade Point Average (GPA) throughout my academic journey, reflecting a strong commitment to excellence and a dedication to my studies.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
     <!-- SWOT -->
     <section id="swot" style="margin-top:20px">
-      <h2>SWOT Analysis</h2>
-      <div class="grid grid-3" style="margin-top:12px">
+      <h2 style="margin-bottom:10px">SWOT Analysis</h2>
+      <div class="grid grid-3">
         <div class="card">
           <h3>Strengths</h3>
-          <p>Strong practical foundation across CAD, embedded systems, and ML; proven by multiple applied projects and teaching/mentoring roles.</p>
+          <p>Strong practical foundation across CAD, embedded systems, and software. Multiple hands-on projects in assistive tech, IoT, and smart agriculture. Demonstrated leadership and teaching skills via lab assistant and internship roles.</p>
         </div>
         <div class="card">
           <h3>Weaknesses</h3>
-          <p>Need broader exposure to large-scale industrial projects and formal project-budgeting experience.</p>
+          <p>Limited large-scale industrial project exposure and formal project budgeting experience. Desire to expand expertise in industrial automation stacks and formalized testing frameworks.</p>
         </div>
         <div class="card">
           <h3>Opportunities</h3>
-          <p>Rapid growth in robotics and precision agriculture—clear pathways via internships, research, and certifications.</p>
+          <p>Growing demand for robotics and precision agriculture; accessible pathways via internships, competitions, certifications, and research collaborations to specialize further.</p>
         </div>
         <div class="card">
           <h3>Threats</h3>
-          <p>Fast-paced fields require structured lifelong learning to avoid skill gaps and remain competitive.</p>
+          <p>Rapid technology changes and competitive job markets require deliberate lifelong learning and consistent portfolio updates.</p>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" style="margin-top:20px">
+    <section id="projects" style="margin-top:22px">
       <h2>Projects</h2>
       <div class="projects-grid" style="margin-top:12px">
         <!-- Smart Glove -->
         <div class="card project">
-          <img src="smartglove.jpg" alt="Smart Glove project">
+          <img src="smartglove.jpg" alt="Smart Glove">
           <div class="pbody">
             <h3>Smart Glove for Deaf & Hard of Hearing</h3>
             <div class="tag">Sensor fusion • ML • TTS</div>
-            <p>Real-time gesture recognition using flex sensors + IMU, ML models (RF, SVM, MLP, XGB), and a Python/Tkinter GUI to convert gestures into speech.</p>
+            <p>Real-time gesture recognition using flex sensors and IMU with ML models (RF, SVM, MLP, XGB) and a Python/Tkinter GUI to translate gestures to speech.</p>
           </div>
         </div>
 
         <!-- VR Glasses -->
         <div class="card project">
-          <img src="vr.jpg" alt="VR Glasses project">
+          <img src="vr.jpg" alt="VR Glasses">
           <div class="pbody">
             <h3>VR Glasses for Visually Impaired</h3>
             <div class="tag">Assistive • Audio feedback</div>
-            <p>Wearable prototype providing environmental awareness through sensors and audio prompts to support safer navigation.</p>
+            <p>Prototype wearable providing environmental awareness via sensors and audio prompts to support safer navigation for visually impaired users.</p>
           </div>
         </div>
 
         <!-- Hydroponic -->
         <div class="card project">
-          <img src="hydrop.jpg" alt="Smart Hydroponic project">
+          <img src="hydrop.jpg" alt="Hydroponic">
           <div class="pbody">
             <h3>Smart Hydroponic System</h3>
             <div class="tag">Automation • Internship</div>
-            <p>Automated nutrient dosing, pH/EC monitoring, climate control, and data logging to improve yield; developed during Lamba internship.</p>
+            <p>Automated nutrient dosing, pH/EC monitoring, climate control and data logging to optimize yield; developed during internship at Lamba Innovation Center.</p>
           </div>
         </div>
 
         <!-- Smart Home -->
         <div class="card project">
-          <img src="smarthouse.jpg" alt="Smart House project">
+          <img src="smarthouse.jpg" alt="Smart House">
           <div class="pbody">
             <h3>IoT-based Smart House</h3>
             <div class="tag">IoT • Safety</div>
-            <p>ESP32-based gas-leak and theft detection, voice-controlled lighting, and telemetry dashboard focused on reliability and user experience.</p>
+            <p>ESP32-based gas-leak and theft detection, voice-controlled lighting and telemetry dashboard focused on usability and robustness.</p>
           </div>
         </div>
 
-        <!-- Hand Swipe (uses mvi.jpg as requested) -->
+        <!-- Hand Swipe -->
         <div class="card project">
-          <img src="mvi.jpg" alt="Hand Swipe Detection project">
+          <img src="mvi.jpg" alt="Hand Swipe Detection"> <!-- Fixed image path -->
           <div class="pbody">
             <h3>Hand Swipe Detection Using AI</h3>
             <div class="tag">Computer Vision • YOLO</div>
-            <p>Custom dataset + YOLO-style training to detect hand swipes robustly. Covers data labeling, augmentation, training, and real-time inference.</p>
+            <p>Custom dataset and training pipeline (YOLO-style) to detect hand swipe gestures; covers labeling, augmentation, and real-time inference.</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- footer / contact -->
-    <footer style="margin-top:26px">
+    <footer>
       <div class="card">
         <h3>Contact & Links</h3>
-        <p class="small">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-asim3/" target="_blank" rel="noopener">linkedin.com/in/mohamed-asim3</a></p>
+        <p class="small">LinkedIn: <a href="https://www.linkedin.com/in/mohamed-asim3/" target="_blank">linkedin.com/in/mohamed-asim3</a></p>
         <p class="small">Email: <a href="mailto:Mkhider72@gmail.com">Mkhider72@gmail.com</a></p>
         <p class="small">Phone: <a href="tel:+60183969477">+60 18 3969 477</a></p>
-        <p style="margin-top:10px;color:var(--muted)">© <span id="yr"></span> Mohamed Asim Khidir</p>
+        <p style="margin-top:12px;color:var(--muted)">© <span id="year"></span> Mohamed Asim Khidir</p>
       </div>
     </footer>
   </div>
 
   <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    // current year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
